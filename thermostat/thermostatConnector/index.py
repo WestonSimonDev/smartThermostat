@@ -8,6 +8,8 @@ from connectors.connector import conn_controller, Error
 import sys
 import subprocess
 import subprocess
+from datetime import datetime
+
 
 # Set the DISPLAY environment variable
 os.environ["DISPLAY"] = ":0"
@@ -22,7 +24,7 @@ subprocess.Popen("xset -dpms", shell=True)
 subprocess.Popen("xset s noblank", shell=True)
 
 # Launch Chromium in kiosk mode with the specified URL
-subprocess.Popen("chromium-browser --noerrdialogs --disable-infobars --kiosk --incognito https://app.bingolive.games", shell=True)
+subprocess.Popen("chromium-browser --noerrdialogs --disable-infobars --kiosk --incognito https://thermostat.la2.http.code.westonsimon.com", shell=True)
 
 GPIO.setmode(GPIO.BOARD)
 
@@ -74,8 +76,9 @@ def getThermoState(db):
 
 def updateThermoState(db, setTemp, indicatedTemp, heat, cooling, blower):
     conn = db.cursor(prepared=True, dictionary=True)
-    query = "UPDATE thermostatProperties SET timeStamp = now(), indicatedTemp = %s, heat = %s, cooling = %s, blower = %s;"
-    conn.execute(query, [indicatedTemp, heat, cooling, blower])
+    
+    query = "UPDATE thermostatProperties SET timeStamp = %s, indicatedTemp = %s, heat = %s, cooling = %s, blower = %s;"
+    conn.execute(query, [datetime.utcnow(), indicatedTemp, heat, cooling, blower])
     
     query = "INSERT INTO thermostatState(setTemp, indicatedTemp, heat, cooling, blower) VALUES ( %s, %s, %s, %s, %s );"
     conn.execute(query, [setTemp, indicatedTemp, heat, cooling, blower])
