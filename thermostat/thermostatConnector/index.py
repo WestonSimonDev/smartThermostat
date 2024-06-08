@@ -28,9 +28,9 @@ subprocess.Popen("chromium-browser --noerrdialogs --disable-infobars --kiosk --i
 
 GPIO.setmode(GPIO.BOARD)
 
-heat = 38
-cooling = 37
-blower = 36
+heat = 21
+cooling = 20
+blower = 26
 
 def turnRelayOn(chanel):
     GPIO.output(chanel, 0)

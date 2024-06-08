@@ -94,7 +94,7 @@ func InitDB() {
 	var err error
 
 	// Open a database connection
-	DB, err = sql.Open("mysql", fmt.Sprintf("superSmartThermostat:%s@(192.168.88.161:3306)/temps?parseTime=true", conf.DBPassword))
+	DB, err = sql.Open("mysql", fmt.Sprintf("superSmartThermostat:%s@(192.168.88.160:3306)/temps?parseTime=true", conf.DBPassword))
 	if err != nil {
 		log.Fatal("Error opening database connection:", err)
 	} else {

@@ -13,6 +13,8 @@ type ThermostatState struct {
 	Heat          bool
 	Cool          bool
 	Blower        bool
+	Mode          string
+	Fan           string
 }
 
 type StoredThermostatAction struct {

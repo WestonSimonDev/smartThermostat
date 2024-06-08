@@ -60,11 +60,29 @@ func CalculateThermostatActions(currentState Types.ThermostatState, lastCommand 
 		}
 	}
 
+	if currentState.Mode == "cool" {
+		action.Heat = false
+	} else if currentState.Mode == "heat" {
+		action.Cool = false
+	}
+
+	if currentState.Fan == "on" {
+		action.Blower = true
+	}
+
 	if action.Execute == true {
 		if action.Heat == currentState.Heat && action.Cool == currentState.Cool && action.Blower == currentState.Blower {
 			action.Execute = false
 		}
 	}
+
+	if currentState.Mode == "off" {
+		action.Heat = false
+		action.Blower = false
+		action.Cool = false
+		action.Execute = true
+	}
+
 	fmt.Println((time.Now().Sub(*lastCommand.Timestamp) >= 5*time.Minute))
 	fmt.Println(time.Now().Sub(*lastCommand.Timestamp))
 	return action

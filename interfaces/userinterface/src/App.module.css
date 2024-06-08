@@ -1,4 +1,195 @@
-.container{
+body{
+    user-select: none;
+}
+
+.darkmode{
+    background-color: #000000;
+    color: black;
+}
+
+.container[data-heat="true"] {
+    background: radial-gradient(circle at top right, #ff2600, white 80%);
+}
+
+.container[data-cool="true"]{
+    background: radial-gradient(circle at top right, #1C3D73, white 80%);
+}
+
+.container.none {
+    background: white;
+}
+
+.container {
+    position: absolute;
+    top:0px;
+    left: 0px;
     width: 800px;
     height: 480px;
+    transition: all 5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Blocky';
+    src: url('./fonts/font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+.tempContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.setTempLabel {
+    font-size: 0.25em;
+    margin-bottom: -0.2em;
+}
+
+.setTemp {
+    font-size: 1em;
+}
+
+.indicatedTemp {
+    font-size: 1em;
+    margin-left: 0.2em;
+}
+*/
+
+.tempContainer{
+    position: absolute;
+    top: -25%;
+    height: 137px;
+
+}
+
+.temp{
+    display: inline-grid;
+    grid-template-columns: auto;
+    text-align: center;
+
+}
+
+.glass {
+    font-family: "Blocky";
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 30px;
+    font-size: 100px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 364px;
+    height: 125px;
+}
+
+.defaultGlass {
+    padding: 30px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+}
+
+.settings{
+    position: absolute;
+    top: 255px;
+    left:50px;
+    width: 424px;
+    font-size: 25px;
+}
+
+
+
+.mode{
+    position: absolute;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+.fan{
+    position: absolute;
+    padding: 0px;
+    text-align: center;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    top: 89px;
+}
+
+.fan :first-child{
+    padding-left: 20px;
+}
+
+.fan :last-child{
+    padding-right: 20px;
+}
+
+.fan div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.mode :first-child{
+    padding-left: 20px;
+}
+
+.mode :last-child{
+    padding-right: 20px;
+}
+
+.mode div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.active{
+    background: rgba(140, 140, 140, 0.2);
+}
+
+.buttons{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 256px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 20px;
+}
+
+.button {
+    font-size: 125px;
+    font-weight: normal;
+    width: 256px;
+    padding: 0px;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.48);
+    font-family: "Arrow";
+}
+
+@font-face {
+    font-family: 'Arrow';
+    src: url('./fonts/arrow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
