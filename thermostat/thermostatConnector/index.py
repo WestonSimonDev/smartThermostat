@@ -12,19 +12,19 @@ from datetime import datetime
 
 
 # Set the DISPLAY environment variable
-os.environ["DISPLAY"] = ":0"
+#os.environ["DISPLAY"] = ":0"
 
 # Disable screen blanking
-subprocess.Popen("xset s off", shell=True)
+#subprocess.Popen("xset s off", shell=True)
 
 # Disable DPMS (Display Power Management Signaling)
 #subprocess.Popen("xset -dpms", shell=True)
 
 # Disable screen blanking
-subprocess.Popen("xset s noblank", shell=True)
+#subprocess.Popen("xset s noblank", shell=True)
 
 # Launch Chromium in kiosk mode with the specified URL
-subprocess.Popen("chromium-browser --noerrdialogs --disable-infobars --kiosk --incognito https://thermostat.la2.http.code.westonsimon.com", shell=True)
+#subprocess.Popen("chromium-browser --noerrdialogs --disable-infobars --kiosk --incognito https://thermostat.la2.http.code.westonsimon.com", shell=True)
 
 GPIO.setmode(GPIO.BOARD)
 
