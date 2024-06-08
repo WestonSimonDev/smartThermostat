@@ -33,10 +33,10 @@ cooling = 20
 blower = 26
 
 def turnRelayOn(chanel):
-    GPIO.output(chanel, 0)
+    GPIO.output(chanel, 1)
 
 def turnRelayOff(chanel):
-    GPIO.output(chanel, 1)
+    GPIO.output(chanel, 0)
 
 GPIO.setup(heat, GPIO.OUT)
 GPIO.setup(cooling, GPIO.OUT)
