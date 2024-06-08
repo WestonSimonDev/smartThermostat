@@ -26,7 +26,7 @@ from datetime import datetime
 # Launch Chromium in kiosk mode with the specified URL
 #subprocess.Popen("chromium-browser --noerrdialogs --disable-infobars --kiosk --incognito https://thermostat.la2.http.code.westonsimon.com", shell=True)
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 heat = 21
 cooling = 20
