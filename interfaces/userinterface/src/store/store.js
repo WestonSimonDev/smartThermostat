@@ -7,7 +7,8 @@ const initialState = {
     mode: "auto",
     fan: "auto",
     indicatedTemp: 0,
-    setTemp: 0
+    setTemp: 0,
+    isDark: false
 }
 
 function appReducer (state = initialState, action) {
@@ -60,6 +61,11 @@ function appReducer (state = initialState, action) {
                         setTemp: action.payload.setTemp,
                         mode: action.payload.mode,
                         fan: action.payload.fan
+                    }
+                case "updateTheme":
+                    return {
+                        ...state,
+                        isDark: action.payload.isDark
                     }
                 default:
                     return state

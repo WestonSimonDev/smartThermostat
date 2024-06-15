@@ -15,7 +15,8 @@ class App extends React.Component {
       mode: "auto",
       fan: "auto",
       indicatedTemp: 0,
-      setTemp: 0
+      setTemp: 0,
+      isDark: false
     };
   }
 
@@ -38,7 +39,8 @@ class App extends React.Component {
       mode: storeState.mode,
       fan: storeState.fan,
       indicatedTemp: storeState.indicatedTemp,
-      setTemp: storeState.setTemp
+      setTemp: storeState.setTemp,
+      isDark: storeState.isDark
     });
 
   };
@@ -83,6 +85,11 @@ class App extends React.Component {
   }
 
   render() {
+    if(this.state.isDark){
+      document.body.style.backgroundColor = "#000000"
+    }else{
+      document.body.style.backgroundColor = "#FFFFFF"
+    }
     return (
         <div className={styles.container} data-cool={this.state.cool} data-heat={this.state.heat}>
           <div className={styles.temps}>

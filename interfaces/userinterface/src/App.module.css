@@ -8,11 +8,11 @@ body{
 }
 
 .container[data-heat="true"] {
-    background: radial-gradient(circle at top right, #ff2600, white 80%);
+    background: radial-gradient(circle at top right, #ff2600, transparent 80%);
 }
 
 .container[data-cool="true"]{
-    background: radial-gradient(circle at top right, #1C3D73, white 80%);
+    background: radial-gradient(circle at top right, #1C3D73, transparent 80%);
 }
 
 .container.none {

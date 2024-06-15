@@ -1,6 +1,6 @@
 import { store } from "../store/store";
 import {v4 as uuidv4} from 'uuid';
-
+const dayjs = require('dayjs')
 
 function msgHandeler(payload){
     try {
@@ -92,6 +92,33 @@ async function websocketManager(){
         }else{
             break
         }
+
+        var isDark = store.getState().isDark
+        if(dayjs().hour() >= 19){
+            if(!isDark){
+                isDark = true
+            }
+        }
+
+        if(dayjs().hour() <= 19){
+            if(isDark){
+                isDark = false
+                console.log("efg")
+            }
+        }
+
+        if(dayjs().hour() <= 6){
+            if(!isDark){
+                isDark = true
+            }
+        }
+
+        if(isDark !== store.getState().isDark){
+            store.dispatch({type: "actions/updateTheme", payload: {isDark: isDark}})
+        }
+
+
+
         await new Promise(r => setTimeout(r, 1000));
     }
 }

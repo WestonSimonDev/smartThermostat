@@ -1,0 +1,9 @@
+2024/06/08 01:54:23 Error pinging database:dial tcp 192.168.88.161:3306: connect: no route to host
+exit status 1
+2024/06/08 01:54:26 Error pinging database:dial tcp 192.168.88.161:3306: connect: no route to host
+exit status 1
+2024/06/08 01:54:29 Error pinging database:dial tcp 192.168.88.161:3306: connect: no route to host
+exit status 1
+2024/06/08 01:54:32 Error pinging database:dial tcp 192.168.88.161:3306: connect: no route to host
+exit status 1
+signal: interrupt
